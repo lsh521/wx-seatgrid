@@ -1,0 +1,92 @@
+<h3>发布场馆</h3>
+<div class="panel panel-default" ng-controller="EditSiteCtrl">
+  <div class="panel-heading">编辑场馆</div>
+  <div class="panel-body">
+    <form class="form-horizontal" role="form" name="candiForm" enctype="multipart/form-data">
+      <fieldset>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">场馆名称</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" ng-model="site.title" required/>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">手机号</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" ng-model="site.phone" placeholder="请输入11位手机号" required/>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">固定电话</label>
+          <div class="col-sm-10">
+            <input class="form-control" style="width: 100px;display: inline-block;margin-right: 10px" type="text" ng-model="site.city_phone" placeholder="区号" required/>-<input class="form-control" style="margin-left:10px;display: inline-block;width: 60%" type="text" ng-model="site.special_Plane" placeholder="请输入号码" required/>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">地址</label>
+              <div class="col-sm-10" style="margin-bottom: 30px">
+                <span class="icon-magnifier form-control-feedback"></span>
+                <input class="form-control" style="text-indent: 20px" type="text" name="address" placeholder="搜索" ng-model="address"/>
+              </div>
+              <!-- 百度地图显示区域 -->
+              <label class="col-sm-2 control-label"></label>
+              <div class="form-group" class="col-sm-10" id="container" style="width: 80%;height: 300px;"></div>
+            </div>
+
+      </fieldset>
+      <fieldset>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">简介</label>
+            <div class="col-sm-10"><ng-simditor  content="site.describe"></ng-simditor></div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">标签
+          </label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" tagsinput="taginput" ng-model="site.tag" />
+            <!--<span class="help-block">Values:<code>{{cities}}</code>-->
+                  <!--</span>-->
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">海报</label>
+          <div class="col-sm-10 fileinput fileinput-new" data-provides="fileinput">
+              <div ng-if="site.poster" class="fileinput-new thumbnail" style="height:200px;width:300px">
+                <img ng-src="{{site.poster}}" image-fixed>
+              </div>
+              <div class="fileinput-preview fileinput-exists thumbnail"></div>
+              <div>
+                    <span class="btn btn-default btn-file" data-toggle="tooltip" data-placement="bottom" title="请保持最佳宽高比，图片大小不能超过1M" tool-tip>
+                      <span class="fileinput-new">选择照片</span>
+                      <span class="fileinput-exists">更换</span>
+                      <input type="file" name="poster" data-file="site.poster" id="image_file">
+                    </span>
+                <a href="#" class="btn btn-default fileinput-exists"
+                   data-dismiss="fileinput">删除</a>
+              </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="row">
+        <div class="col-sm-12">
+          <center>
+            <button class="btn btn-default btn-outline"  ui-sref="app.miniVotingList" ng-click="cancel()">取消</button>
+            <button class="btn btn-success btn-outline" ng-if="site_id==='-1'" ng-click="save()">保存</button>
+            <button class="btn btn-success btn-outline" ng-if="site_id!=='-1'" ng-click="update()">更新</button>
+            <button class="btn btn-success btn-outline" ng-if="site_id==='-1'" ng-click="saveup()">保存并上架</button>
+          </center>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

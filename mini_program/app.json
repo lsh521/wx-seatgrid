@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "page/Ad/Adlist/Adlist",
+    "page/Ad/My_coll/My_coll",
+    "page/Ad/Adlist/AdDetail/AdDetail",
+    "page/Ad/Adlist/seats/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "i文体",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#fff",
+    "enablePullDownRefresh": true
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

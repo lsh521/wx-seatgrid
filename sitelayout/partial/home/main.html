@@ -1,0 +1,86 @@
+<header class="topnavbar-wrapper">
+  <nav class="navbar topnavbar" role="navigation">
+   <div class="navbar-header">
+      <span class="navbar-brand">
+         <div class="brand-logo" ng-click="pop()">
+           校园硬件运营系统
+            <!--<img class="img-responsive" src="static/images/vote_header.png" alt="App Logo" />-->
+         </div>
+         <div class="brand-logo-collapsed">
+            <!--<img class="img-responsive" src="static/images/vote_logo.png" alt="App Logo" />-->
+         </div>
+      </span>
+   </div>
+   <div class="nav-wrapper">
+      <ul class="nav navbar-nav">
+         <li>
+            <a class="hidden-xs" href="" trigger-resize="" ng-click="app.layout.isCollapsed = !app.layout.isCollapsed" ng-if="!app.layout.isCollapsedText">
+               <em class="fa fa-navicon"></em>
+            </a>
+            <a class="visible-xs sidebar-toggle" href="" ng-click="app.asideToggled = !app.asideToggled">
+               <em class="fa fa-navicon"></em>
+            </a>
+         </li>
+         <li>
+            <a href="" ng-click="toggleUserBlock()">
+               <em class="icon-user"></em>
+            </a>
+         </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" ng-controller="UserBlockCtrl">
+         <li>
+           <a ui-sref="app.versionManage" title="点击进入版本列表">
+             <em class="icon-speedometer"></em> 当前版本：{{currentVersion}}
+           </a>
+         </li>
+         <li>
+            <a ng-click="loginout()">
+               <em class="fa fa-sign-out"></em> 登出
+            </a>
+         </li>
+      </ul>
+   </div>
+  </nav>
+</header>
+<aside class="aside">
+  <div class="aside-inner" ng-controller="MainCtrl">
+     <nav class="sidebar" sidebar="" sidebar-anyclick-close="" ng-class="{'show-scrollbar': app.layout.asideScrollbar}">
+        <ul class="nav">
+           <li class="has-user-block">
+              <div uib-collapse="userBlockVisible" ng-controller="UserBlockCtrl">
+                 <div class="item user-block">
+                    <div class="user-block-picture">
+                       <div class="user-block-status">
+                          <img class="img-thumbnail img-circle" ng-src="static/{{user.icon}}" alt="Avatar" />
+                          <div class="circle circle-success circle-lg"></div>
+                       </div>
+                    </div>
+                    <div class="user-block-info">
+                       <span class="user-block-name">{{user.username}}</span>
+                       <!-- <span class="user-block-role">{{user.job}}</span> -->
+                    </div>
+                 </div>
+              </div>
+           </li>
+           <li ng-class="getMenuItemPropClasses(item)" ng-repeat="item in menuItems" ng-init="pIndex = $index" ng-include="'sidebar-renderer.html'" ng-click="toggleCollapse(pIndex, true)"></li>
+        </ul>
+     </nav>
+  </div>
+</aside>
+<section>
+  <!-- <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container> -->
+   <div class="content-wrapper" ui-view="" autoscroll="false" ng-class="app.viewAnimation"></div>
+</section>
+<footer>
+  <span>Powered By BoringKiller Ltd</span>
+</footer>
+<script type="text/ng-template" id="sidebar-renderer.html">
+   <a ng-if="!item.heading" ui-sref={{item.sref}} title="{{item.text}}">
+     <em class="{{item.icon}}" ng-if="item.icon"></em>
+     <span>{{item.text}}</span>
+   </a>
+    <ul class="nav sidebar-subnav" ng-if="item.submenu" uib-collapse="isCollapse(pIndex)" ng-init="addCollapse(pIndex, item)">
+      <li class="sidebar-subnav-header">{{item.text}}</li>
+      <li ng-repeat="item in item.submenu" ng-include="'sidebar-renderer.html'" ng-class="getMenuItemPropClasses(item)" ng-init="pIndex=(pIndex+'-'+$index); inSubmenu = true" ng-click="toggleCollapse(pIndex)"></li>
+    </ul>
+</script>

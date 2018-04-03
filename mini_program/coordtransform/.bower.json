@@ -1,0 +1,35 @@
+{
+  "name": "coordtransform",
+  "description": "A common coordinate systems conversion module!",
+  "main": "index.js",
+  "authors": [
+    "wandergis"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "coordinate",
+    "wgs84",
+    "bd09",
+    "gcj02",
+    "transform"
+  ],
+  "homepage": "https://github.com/gongxiancao/coordtransform",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "2.1.1",
+  "_release": "2.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.1.1",
+    "commit": "dbf2a33ba6d56314cac9ccfc68d20127bc3812a2"
+  },
+  "_source": "https://github.com/gongxiancao/coordtransform.git",
+  "_target": "^2.1.1",
+  "_originalSource": "coordtransform",
+  "_direct": true
+}

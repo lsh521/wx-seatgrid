@@ -1,0 +1,26 @@
+<template name="seats">
+  <checkbox-group class="seats-container {{ animateCss }}" bindchange="{{ bindchange }}" wx:if="{{ visible }}">
+    <scroll-view scroll-x="true" scroll-y="true">
+      <view class="seats-row"></view>
+      <view class="seats-body">
+        <block wx:for="{{ seats }}" wx:key="">
+          <view class="seats-row">
+            <block wx:for="{{ item}}" wx:key="" wx:for-item="p">
+              <view class="seats-cell seats-icon seats-space" style='background-size: 0 0;' wx:if="{{ p.name }}">{{p.name}}</view>
+              <view data-id="{{ p.id }}" class="seats-seat seats-cell seats-icon {{ p.disabled ? 'unavailable' : 'available' }} {{ p.checked ? 'selected' : '' }}" wx:if="{{ !p.space }}">
+                <checkbox class="seats-checkbox" value="{{ p.id }}" checked="{{ p.checked }}" disabled="{{ p.disabled }}" />
+                <view wx:if="{{!p.mywant}}">
+                  <item wx:if="{{p.loveFlag}}" style="color:#494d4e;font-size:20rpx;width:30px;margin-top:2rpx;display:block;margin-left:24rpx;">{{p.loveFlag}}人想去</item>
+                </view>
+                <item wx:if="{{p.mywant}}" style="color:#fff;font-size:24rpx;width:22px;margin-top:17rpx;display:block;margin-left:12rpx;">￥{{p.money}}</item>
+              </view>
+              <view wx:else>
+                <view class="seats-cell seats-icon seats-space" wx:if="{{! p.name }}"></view>
+              </view>
+            </block>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </checkbox-group>
+</template>

@@ -1,0 +1,56 @@
+<h3>场馆
+<button class="btn btn-info btn-outline pull-right" ui-sref="app.site({id:-1})">添加</button>
+</h3>
+<div class="container-fluid" ng-controller="SiteCtrl">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">场馆信息列表</div>
+		</div>
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped table-hover" ng-table="tableParams" show-filter="true">
+				<tbody>
+					<tr ng-repeat="site in $data">
+						<td data-title="'名称'" filter="{ 'name': 'text' }">
+							<a ng-click="updateSite(site)"><center>{{site.title}}</center></a>
+						</td>
+						<td data-title="'海报'">
+							<center>
+								<img style="width: 200px;height: auto" class="img-responsive" ng-src="{{site.poster}}">
+							</center>
+						</td>
+						<td data-title="'简介'">
+							<center>
+								<div  style="width:350px;height: 100px;overflow-y: scroll; border: 1px solid #f0f0f0;background:#edf1f2 "  rows="6">
+                  <p  ng-bind-html="site.describe | to_trusted"></p>
+                </div>
+							</center>
+						</td>
+						<td data-title="'电话'">
+							<center>{{site.tel}}</center>
+              <br/>
+              <center>{{site.phone}}</center>
+						</td>
+						<td data-title="'总收藏数'">
+							<center>{{site.enshrine_num}}</center>
+						</td>
+						<td data-title="'标签'">
+							<center>
+								<span class="label label-info" style="margin-right: 5px;"
+									ng-repeat="label in site.tag_list">{{label.name}}</span>
+							</center>
+						</td>
+						<td data-title="'操作'">
+							<center>
+                <button class="mb-sm btn btn-pink btn-outline" ng-if="site.publish==false" ng-click="upSite(site.id)">上架</button>
+                <button class="mb-sm btn btn-success btn-outline" ng-if="site.publish==true" ng-click="downSite(site.id)">下架</button>
+								<button class="mb-sm btn btn-info btn-outline"   ng-if="site.top==false" ng-click="top(site.id)">置顶</button>
+                <button class="mb-sm btn btn-info btn-outline"   ng-if="site.top==true" ng-click="untop(site.id)">取消置顶</button>
+								<button class="mb-sm btn btn-danger btn-outline" ng-click="deleteSite(site.id)">删除</button>
+							</center>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

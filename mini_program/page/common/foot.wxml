@@ -1,0 +1,20 @@
+<template name="footer">
+  <view class="page-footer">
+    <view class="page-footers">
+      <navigator class="nav" url="../../../page/Ad/Adlist/Adlist" open-type="redirect" hover-class="navigator-hover">
+          <view class="nav-top">
+          <image src="{{imgs}}" style="width:56rpx;height:50rpx"></image>
+           <view style='margin-top:-5px'><text class="font_bar" style="color:{{colors1}}">推荐</text></view>
+          </view>
+      </navigator>
+    </view>
+    <view class="page-footers">
+      <navigator class="nav" url="../../../page/Ad/My_coll/My_coll" open-type="redirect" hover-class="navigator-hover" >
+          <view class="nav-top">
+          <image src="{{imgs3}}" style="width:56rpx;height:50rpx;"></image>
+           <view style='margin-top:-5px'><text class="font_bar" style="color:{{colors}}">我的</text></view>
+          </view>
+      </navigator>
+    </view>
+  </view>
+</template>

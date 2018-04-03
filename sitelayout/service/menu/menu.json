@@ -1,0 +1,12 @@
+[
+  {
+    "text": "首页",
+    "sref": "app.home",
+    "icon": "icon-speedometer"
+  },
+  {
+    "text": "项目库",
+    "sref": "app.projectLibrary",
+    "icon": "icon-grid"
+  }
+]

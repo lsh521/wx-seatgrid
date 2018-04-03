@@ -1,0 +1,56 @@
+.content{
+  padding: 30rpx
+}
+.poster{
+  width: 100%;
+  border-radius: 15rpx
+}
+.view_poster{
+  text-align: center
+}
+page{
+  background-color:#fff;
+  border-top: 1px solid #f8f8f8;
+}
+.top{
+  width: 36rpx;
+  height: 36rpx;
+  float: right;
+  padding-right:30rpx; 
+}
+.title{
+  /* float: left; */
+  /* padding-left: 40rpx; */
+  color: d8d8d8;
+  font-weight: 400;
+  font-family: "微软雅黑";
+  font-size:30rpx;
+}
+.save{
+  width: 60rpx;
+  height: 60rpx;
+  float: right;
+}
+.shoucang{
+  width: 36rpx;
+  height: 36rpx;
+  float: right;
+  /* padding-right: 40rpx */
+}
+.tags{
+  clear: both
+}
+.tag{
+  display: inline-block;
+  width: auto;
+  height: auto;
+  color: #d8d8d8;
+  font-size: 20rpx;
+  padding: 5rpx 20rpx;
+  border-radius: 30rpx;
+  border: 1px solid #d8d8d8;
+  margin-right: 30rpx
+}
+.shouhover:hover{
+display: none
+}

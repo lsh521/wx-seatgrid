@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- 百度地图定位 -->
+    <script data-remove="false" data-concat="false" src="https://api.map.baidu.com/api?v=2.0&ak=7eiqiF2T1iotalfSUc8w6jXGTAXwGWKK&s=1" type="text/javascript"></script>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angularjs-toaster/toaster.css" />
+    <link rel="stylesheet" href="bower_components/chosen/chosen.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
+    <link rel="stylesheet" href="bower_components/ng-table/dist/ng-table.css" />
+    <link rel="stylesheet" href="bower_components/simditor/styles/simditor.css">
+    <link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/whirl/dist/whirl.css" />
+    <link rel="stylesheet" href="bower_components/loaders.css/loaders.css" />
+    <link rel="stylesheet" href="bower_components/SpinKit/css/spinkit.css" />
+    <link rel="stylesheet" href="bower_components/select2/dist/css/select2.css">
+    <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
+    <!--<link rel="stylesheet" href="bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.less" />-->
+    <link rel="stylesheet" href="bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" />
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" />
+    <!-- <link rel="stylesheet" href="bower_components/angular-carousel/dist/angular-carousel.css" /> -->
+    <!-- image-picker css -->
+    <link rel="stylesheet" href="bower_components/image-picker/image-picker/image-picker.css" />
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="theme-d.css">
+  </head>
+  <body ng-app="university" ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat, 'offsidebar-open': app.offsidebarOpen, 'aside-toggled': app.asideToggled, 'aside-collapsed-text': app.layout.isCollapsedText}">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="wrapper" ui-view="" autoscroll="false"></div>
+    <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <!-- <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script> -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <!-- <script src="bower_components/angular-carousel/dist/angular-carousel.js"></script> -->
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+    <!-- <script src="bower_components/angular-ui-scroll/dist/ui-scroll.js"></script>
+    <script src="bower_components/angular-ui-scrollpoint/dist/scrollpoint.js"></script>
+    <script src="bower_components/angular-ui-event/dist/event.js"></script>
+    <script src="bower_components/angular-ui-mask/dist/mask.js"></script>
+    <script src="bower_components/angular-ui-validate/dist/validate.js"></script>
+    <script src="bower_components/angular-ui-indeterminate/dist/indeterminate.js"></script>
+    <script src="bower_components/angular-ui-uploader/dist/uploader.js"></script> -->
+    <script src="bower_components/angularjs-toaster/toaster.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/angular-ui-sortable/sortable.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/moment/locale/zh-cn.js"></script>
+    <script src="bower_components/angular-i18n/angular-locale_zh.js"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="bower_components/angular-sweetalert/SweetAlert.js"></script>
+    <script src="bower_components/ng-table/dist/ng-table.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/simple-module/lib/module.js"></script>
+    <script src="bower_components/simple-hotkeys/lib/hotkeys.js"></script>
+    <script src="bower_components/simple-uploader/lib/uploader.js"></script>
+    <script src="bower_components/simditor/lib/simditor.js"></script>
+    <script src="bower_components/angular-simditor/src/angular-simditor.js"></script>
+    <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
+    <script src="bower_components/Flot/jquery.flot.js"></script>
+    <script src="bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="bower_components/Flot/jquery.flot.resize.js"></script>
+    <script src="bower_components/Flot/jquery.flot.pie.js"></script>
+    <script src="bower_components/Flot/jquery.flot.time.js"></script>
+    <script src="bower_components/Flot/jquery.flot.categories.js"></script>
+    <script src="bower_components/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+    <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="bower_components/select2/dist/js/select2.js"></script>
+    <script src="bower_components/bootstrap-tagsinput/src/bootstrap-tagsinput.js"></script>
+    <!--<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>-->
+    <!-- image picker js -->
+    <script src="bower_components/image-picker/image-picker/image-picker.js"></script>
+    <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+    <!--<script src="directive/form-input/form-input.js"></script>-->
+        <script src="app.js"></script>
+        <script src="directive/myDirective/mydirective.js"></script>
+       <script src="partial/home/main.js"></script>
+        <script src="partial/menu/userBlockCtrl.js"></script>
+        <script src="partial/pages/login.js"></script>
+        <script src="partial/site/siteList.js"></script>
+        <script src="partial/site/editSite.js"></script>
+        <script src="service/httpinterceptor.js"></script>
+        <script src="service/services.js"></script>
+        <script src="service/menu/menu.js"></script>
+        <script src="partial/version/versionList.js"></script>
+        <script src="service/version.js"></script>
+        <script src="partial/version/editVersion.js"></script>
+        <script src="service/userService.js"></script>
+        <!--<script src="service/version.js"></script>-->
+        <script src="service/site.js"></script>
+        <script src="service/paramService.js"></script>
+        <script src="directive/tags_input/tags-input.directive.js"></script>
+        <script src="directive/menu/menu.js"></script>
+        <script src="directive/utils/utils.js"></script>
+        <script src="directive/panels/panels.js"></script>
+        <script src="directive/charts/flot-charts.js"></script>
+        <script src="directive/file/file.js"></script>
+        <script src="directive/datetimepicker/datetimepicker.js"></script>
+
+        <script src="filter/filter.js"></script>
+  </body>
+</html>

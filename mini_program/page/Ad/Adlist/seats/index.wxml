@@ -1,0 +1,39 @@
+<import src="../../../component/seats/seats.wxml" />
+<scroll-view scroll-top="{{scrollTop}}">
+<scroll-view scroll-x="true" style='background:#FAFAFA;'>
+  <view style='display:flex;height:100rpx;'>
+    <view wx:for="{{ dates }}" wx:key="" class="{{item.choose==true ? 'choosed' : ''}}" style='margin-left:20rpx'>
+      <view class="{{item.choose==true ? 'choose' : 'weekname'}}" style='width:120rpx;font-size: 28rpx;text-align:center;padding-top:10rpx' bindtap="intothisDay" data-id='{{item.date}}'>{{item.week}}</view>
+      <view class="{{item.choose==true ? 'choose' : 'date'}}" style='font-size: 24rpx;text-align:center' bindtap="intothisDay" data-id='{{item.date}}'>{{item.date}}</view>
+    </view>
+  </view>
+</scroll-view>
+<view class="seats-img" style='margin-bottom:20rpx'>
+  <text class="seats-icon1 shouchu"></text>
+  <text class="text">已被预定</text>
+  <text class="seats-icon1 seats-available"></text>
+  <text class="text">可预定</text>
+  <text class="seats-icon1 unavailable"></text>
+  <text class="text">我也想去</text>
+  <text class="seats-icon1 double"></text>
+  <text class="text">我的选择</text>
+</view>
+<view class="seats-area" style='display:flex;background: #F9F9F9;margin-bottom:100rpx'>
+  <view class="seats-row" style='float:left;font-size:20rpx;;width:60rpx;margin-top:43px;background: rgba(0,0,0,0.20);border-radius: 100rpx;margin-left:30rpx;margin-right:30rpx'>
+    <view wx:for="{{time}}" wx:key="" style="height:30px;font-size: 23rpx;color: #FFFFFF;letter-spacing: 0;text-align:center;">{{item}}</view>
+  </view>
+  <template is="seats" data="{{ ...$wux.seats.movie }}" />
+
+</view>
+<view class="info" wx:if="{{ !items.length }}"></view>
+<view style='display:flex'>
+<view class="seat-wrap" wx:for="{{ items }}" wx:key="" wx:if="{{ !!items.length }}" style='box-shadow: 0 1rpx 2rpx 0 rgba(0,0,0,0.20);border-radius: 6rpx;width:160rpx;font-size:18rpx;text-algin:center;margin-left:25rpx'>
+  <view class="seat" data-id="{{ item.id }}" style='text-align:center;background: #585858;border-radius: 3px 3px 0 0;'>{{ item.time }}</view>
+  <view class="seat" data-id="{{ item.id }}" style='background: #F9F9F9;box-shadow: 0 1px 2px 0 rgba(0,0,0,0.20);font-size:22rpx;text-align:center;border-radius: 0 0 3px 3px;'>{{ item.label }}</view>
+</view>
+</view>
+<view class="selected-seats" style='height:100rpx;line-height:100rpx;display: flex'>
+  <view style='width:50%;text-align:center' bindtap="IwantGo">我也想去</view>
+  <view style='width:50%;text-align:center;background:#F58023;color: #FFFFFF'>￥{{ total || '00.00' }}提交订单</view>
+</view>
+</scroll-view>

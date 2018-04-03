@@ -1,0 +1,38 @@
+<h3>版本管理
+	<button class="btn btn-primary btn-outline pull-right" ui-sref="app.editVersion({ id : '-1' })">新建版本</button>
+</h3>
+<div class="container-fluid" ng-controller="VersionCtrl">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">版本信息列表</div>
+		</div>
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped table-hover" ng-table="tableParams">
+				<tbody>
+					<tr ng-repeat="version in $data">
+						<td data-title="'版本号'">
+							<center>{{version.version_number}}</center>
+						</td>
+						<td data-title="'创建时间'">
+							<center>{{version.create_time | date: 'yyyy-MM-dd HH:mm'}}</center>
+						</td>
+						<td data-title="'操作人'">
+							<center><span class="label label-info">{{version.creator}}</span></center>
+						</td>
+						<td data-title="'更新内容'">
+							<center>
+								<textarea class="form-control" rows="6" ng-bind="version.content" readonly="readonly"></textarea>
+							</center>
+						</td>
+						<td data-title="'操作'">
+							<center>
+								<!-- <a class="mb-sm btn btn-info btn-outline" ui-sref="app.editVersion({ id : version.id })">编辑</a> -->
+								<button class="mb-sm btn btn-danger btn-outline" ng-click="deleteVersion(version)">删除</button>
+							</center>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<import src="../../common/foot.wxml" />
+<view style='padding:20rpx'>
+  <view style='background: #494D4E;box-shadow: 0 2rpx 5rpx 0 rgba(0,0,0,0.20);border-radius: 5rpx;height:140rpx;width:100%;display:flex'>
+    <view class="icon">
+      <image src='{{user.icon}}' style='width:100rpx;height:100rpx;border-radius:50%'></image>
+    </view>
+    <view class="nameTel" style='color: #FFFFFF;letter-spacing: -0.77px;'>
+      <view style='font-size: 32rpx;'>{{user.nickname}}</view>
+      <view style='font-size: 24rpx;'>
+        <view style='float:left'>tel:134044430340</view>
+        <image src='../../../image/user_botton_modify_white.png' style='width:20rpx;height:20rpx;float:left;margin:10rpx 40rpx'></image>
+      </view>
+    </view>
+    <view>
+    <button style="background: rgba(255,255,255,0.20);border: 1px solid rgba(255,255,255,0.40);border-radius: 100px;;width:155rpx;height:60rpx;font-size:24rpx;color:#fff;line-height:60rpx;margin:38rpx 60rpx;">身份验证</button>
+    </view>
+  </view>
+</view>
+<template is="footer" data="{{colors: '#F58723',imgs:'../../../image/nav_icon_home_default.png',imgs3:'../../../image/nav_icon_my_pressed.png'}}" />
+<view style='text-align:center' hidden="{{showloading}}">
+  <image style='text-align:center;width:65%;height:350rpx' src='../../../image/timg.gif'></image>
+</view>
